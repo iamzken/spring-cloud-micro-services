@@ -35,40 +35,41 @@
 代码结构截图如下：
  
 ![](https://github.com/iamzken/spring-cloud-micro-services/blob/master/image/1.png)
+
 入口main类截图如下：
- 
+![](https://github.com/iamzken/spring-cloud-micro-services/blob/master/image/2.png) 
 
 运行该main类即可启动应用
 
 应用所使用的配置文件截图如下：
- 
+ ![](https://github.com/iamzken/spring-cloud-micro-services/blob/master/image/3.png)
 应用启动时会去classpath根目录下寻找名为application.yml（端口等重要信息）的配置文件，配置文件中的配置项active: dev代表实际选择的配置文件为application-dev.yml，从截图中可以看出配置文件一共分为开发、测试和生产三个，开发这可以根据实际情况选择对应的配置文件（通过修改applicatiton.yml中的active即可）
 2.2服务消费者
 	cloud-ribbon-consumer为服务消费者应用，通过ribbon+restTemplate实现客户端负载均衡，具体看代码可以更清楚。代码结构截图如下：
- 
+ ![](https://github.com/iamzken/spring-cloud-micro-services/blob/master/image/4.png)
 
 入口main类截图如下：
- 
+ ![](https://github.com/iamzken/spring-cloud-micro-services/blob/master/image/5.png)
 运行该main类即可启动应用
 配置文件的介绍可参考服务生产者模块的介绍，都是相似的
 2.3服务注册中心
 	cloud-eureka-server为服务注册中心，通过springcloud的组件eureka实现
 代码结构截图如下：
-	 
+	 ![](https://github.com/iamzken/spring-cloud-micro-services/blob/master/image/6.png)
 入口main类截图如下：
- 
+ ![](https://github.com/iamzken/spring-cloud-micro-services/blob/master/image/7.png)
 配置文件介绍可参考服务生产者模块
 2.4架构图
- 
+ ![](https://github.com/iamzken/spring-cloud-micro-services/blob/master/image/8.png)
 3. 应用访问
 3.1服务注册中心
 	依次启动上述应用后，访问
 http://localhost:8761/
 这是服务注册中心，通过服务注册中心可以看到目前注册的微服务的名称、地址和状态等基本信息，截图如下：
- 
+ ![](https://github.com/iamzken/spring-cloud-micro-services/blob/master/image/9.png)
 3.2服务消费
 访问http://localhost:9093/queryUserById/1，即可调用微服务，效果截图：
- 
+ ![](https://github.com/iamzken/spring-cloud-micro-services/blob/master/image/10.png)
 4. 待优化的内容
 4.1 springcloud组件
 根据业务复杂度及技术人员掌握情况，后续要整合更多的springcloud组件
