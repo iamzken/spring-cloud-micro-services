@@ -34,7 +34,7 @@
 	负责模块的同学可以依此为模板自建应用实现更多微服务。
 代码结构截图如下：
  
-(https://github.com/iamzken/spring-cloud-micro-services/tree/master/image/1.png)
+![](https://github.com/iamzken/spring-cloud-micro-services/tree/master/image/1.png)
 入口main类截图如下：
  
 
