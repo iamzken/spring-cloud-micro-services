@@ -1,0 +1,9 @@
+spring:
+  profiles:
+    active: dev
+  application:
+    name: cloud-ribbon
+  groovy:
+    template:
+      configuration:
+        declaration-encoding: JSON
