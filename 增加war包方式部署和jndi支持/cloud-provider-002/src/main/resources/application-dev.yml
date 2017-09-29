@@ -1,0 +1,29 @@
+server:
+    port: 8086
+    context-path: /cloud-provider-context
+
+mybatis:
+    type-aliases-package: com.cloud.model
+    mapper-locations: classpath:mapper/*.xml
+
+mapper:
+    mappers:
+        - com.cloud.database.BaseMapper
+    not-empty: false
+    identity: MYSQL
+
+pagehelper:
+    helperDialect: mysql
+    reasonable: true
+    supportMethodsArguments: true
+    params: count=countSql
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8084/eureka-server/eureka
+  healthcheck:
+   enable: true
+  instance:
+    prefer-ip-address: true #指定显示ip
+    instance-id: ${spring.cloud.client.hostname}:${spring.application.name}:${spring.application.instance_id:${server.port}}
