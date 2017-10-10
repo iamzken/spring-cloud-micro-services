@@ -1,0 +1,18 @@
+server:
+    port: 8087
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8084/eureka-server/eureka
+  healthcheck:
+   enable: true
+  instance:
+    prefer-ip-address: true
+    #指定显示ip
+    instance-id: 127.0.0.1:${server.port}
+
+#--------------------------配置ribbon的规则 随机
+cloud-provider:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
