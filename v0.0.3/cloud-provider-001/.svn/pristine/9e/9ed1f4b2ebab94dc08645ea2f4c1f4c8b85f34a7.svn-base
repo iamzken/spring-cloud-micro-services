@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Implementation-Vendor: Pivotal Software, Inc.
+Implementation-Title: cloud-provider-001
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: com.cloud
+Build-Jdk: 1.7.0_80
+Built-By: kenan.zhang
+Created-By: Maven Integration for Eclipse
+Implementation-URL: http://projects.spring.io/spring-boot/cloud-provid
+ er-001/
+

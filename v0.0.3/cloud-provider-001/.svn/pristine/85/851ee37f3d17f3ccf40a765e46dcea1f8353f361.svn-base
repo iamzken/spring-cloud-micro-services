@@ -1,0 +1,56 @@
+{
+  "hints": [],
+  "properties": [
+    {
+      "sourceType": "com.cloud.database.druid.DruidProperties",
+      "name": "druid.driver-class",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.cloud.database.druid.DruidProperties",
+      "name": "druid.initial-size",
+      "defaultValue": 0,
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.cloud.database.druid.DruidProperties",
+      "name": "druid.max-active",
+      "defaultValue": 0,
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.cloud.database.druid.DruidProperties",
+      "name": "druid.min-idle",
+      "defaultValue": 0,
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.cloud.database.druid.DruidProperties",
+      "name": "druid.password",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.cloud.database.druid.DruidProperties",
+      "name": "druid.test-on-borrow",
+      "defaultValue": false,
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.cloud.database.druid.DruidProperties",
+      "name": "druid.url",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.cloud.database.druid.DruidProperties",
+      "name": "druid.username",
+      "type": "java.lang.String"
+    }
+  ],
+  "groups": [
+    {
+      "sourceType": "com.cloud.database.druid.DruidProperties",
+      "name": "druid",
+      "type": "com.cloud.database.druid.DruidProperties"
+    }
+  ]
+}

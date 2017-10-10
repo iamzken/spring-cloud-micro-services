@@ -1,0 +1,49 @@
+package com.cloud.controller;
+
+import com.cloud.model.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
+
+/**
+ * @author kenan.zhang
+ * @version V1.0
+ * @Description: 用户控制器,使用ribbon实现客户端负载均衡,cloud-provider为服务名
+ * @date 2017/8/15
+ */
+
+@RestController
+public class UserController {
+    @Autowired
+    RestTemplate restTemplate;
+    @Autowired
+    private LoadBalancerClient loadBalancerClient;
+
+    @GetMapping("/queryUserById/{id}")
+    @ResponseBody
+    public User queryUserById(@PathVariable Long id) {
+        ResponseEntity<User> responseEntity = this.restTemplate.getForEntity("http://cloud-provider/queryUserById/" + id, User.class);
+        User user = responseEntity.getBody();
+        return user;
+    }
+
+    @GetMapping("/queryUser/{id}")
+    @ResponseBody
+    public User queryUser(@PathVariable Long id) {
+        ServiceInstance serviceInstance = this.loadBalancerClient.choose("cloud-provider");
+
+        System.out.println(serviceInstance.getServiceId()+":"+serviceInstance.getHost()+":"+serviceInstance.getUri());
+
+        ResponseEntity<User> forEntity = this.restTemplate.getForEntity("http://cloud-provider/queryUserById/" + id, User.class);
+        return forEntity.getBody();
+    }
+
+
+
+}
